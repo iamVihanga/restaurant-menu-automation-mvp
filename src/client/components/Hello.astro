@@ -1,9 +1,14 @@
 ---
+import { ServerStatus } from "./server-status";
 import { Button } from "@client/components/ui/button";
 ---
 
-<div class="flex items-center justify-center text-red-400">
+<div class="flex flex-col items-center justify-center text-red-400">
   Hello World
 
   <Button>Click Me</Button>
+
+  <div class="text-foreground mt-4">
+    <ServerStatus client:load />
+  </div>
 </div>
