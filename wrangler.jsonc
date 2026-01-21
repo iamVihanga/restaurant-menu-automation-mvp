@@ -1,5 +1,21 @@
 {
   "name": "restaurant-menu-automation-mvp",
   "compatibility_date": "2025-09-27",
-  "main": "src/server/index.ts"
+  "main": "src/server/index.ts",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "env": {
+    "staging": {
+      "vars": {
+        "ENVIRONMENT": "staging"
+      }
+    },
+    "production": {
+      "vars": {
+        "ENVIRONMENT": "production"
+      }
+    }
+  }
 }
