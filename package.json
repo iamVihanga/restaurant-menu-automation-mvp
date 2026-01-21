@@ -8,7 +8,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "lint": "eslint 'src/**/*.{js,ts,tsx,astro}'"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
@@ -16,9 +17,11 @@
     "@tailwindcss/vite": "^4.1.18",
     "@types/react": "^19.2.9",
     "@types/react-dom": "^19.2.3",
+    "@typescript-eslint/parser": "^8.53.1",
     "astro": "^5.16.11",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "eslint-plugin-astro": "^1.5.0",
     "lucide-react": "^0.562.0",
     "prettier": "^3.8.0",
     "prettier-plugin-astro": "^0.14.1",
