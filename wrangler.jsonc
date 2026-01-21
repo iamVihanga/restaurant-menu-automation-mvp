@@ -6,11 +6,28 @@
     "directory": "./dist",
     "binding": "ASSETS"
   },
+
+  // For local environment,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mvp_local_db",
+      "database_id": "random-fake-id"
+    }
+  ],
+
   "env": {
     "staging": {
       "vars": {
         "ENVIRONMENT": "staging"
-      }
+      },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "restaurant_menu_automation_mvp_staging_db",
+          "database_id": "282b4fd8-b0d5-4105-b8b2-502039a2ae29"
+        }
+      ]
     },
     "production": {
       "vars": {

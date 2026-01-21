@@ -12,9 +12,9 @@ export function ServerStatus({}: Props) {
   }, []);
 
   return (
-    <div>
+    <div className="flex items-center gap-2">
       <h1>Server Status</h1>
-      <p>{status}</p>
+      <p className="font-semibold text-green-500">{status}</p>
     </div>
   );
 }
