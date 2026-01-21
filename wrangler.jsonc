@@ -12,7 +12,8 @@
     {
       "binding": "DB",
       "database_name": "mvp_local_db",
-      "database_id": "random-fake-id"
+      "database_id": "random-fake-id",
+      "migrations_dir": "./src/server/database/migrations"
     }
   ],
 
@@ -25,7 +26,8 @@
         {
           "binding": "DB",
           "database_name": "restaurant_menu_automation_mvp_staging_db",
-          "database_id": "282b4fd8-b0d5-4105-b8b2-502039a2ae29"
+          "database_id": "282b4fd8-b0d5-4105-b8b2-502039a2ae29",
+          "migrations_dir": "./src/server/database/migrations"
         }
       ]
     },
