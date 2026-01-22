@@ -14,6 +14,7 @@ interface MenuItem {
   description: string | null;
   price: number | null;
   addons: MenuAddon[];
+  image?: string;
 }
 
 interface MenuCategory {
@@ -206,6 +207,52 @@ app.post("/api/extract-menu", async (c) => {
       { error: "Error occurred while processing menu extraction." },
       500,
     );
+  }
+});
+
+// Image generation endpoint using Flux-1-schnell model
+app.post("/api/generate-image", async (c) => {
+  try {
+    const body = await c.req.json();
+    const { itemName, additionalPrompt } = body;
+
+    if (!itemName) {
+      return c.json({ error: "Item name is required" }, 400);
+    }
+
+    // Build the prompt for food image generation
+    const basePrompt = `Professional food photography of "${itemName}", appetizing restaurant menu style, high quality, well-lit, on a clean plate, food styling, editorial quality`;
+    const fullPrompt = additionalPrompt
+      ? `${basePrompt}, ${additionalPrompt}`
+      : basePrompt;
+
+    // Generate image using Flux-1-schnell model
+    const aiResponse = await c.env.AI.run(
+      "@cf/black-forest-labs/flux-1-schnell",
+      {
+        prompt: fullPrompt,
+        steps: 4,
+      },
+    );
+
+    // The response contains the image as base64
+    const imageBase64 = (aiResponse as { image?: string }).image;
+
+    if (!imageBase64) {
+      return c.json({ error: "Failed to generate image" }, 500);
+    }
+
+    return c.json(
+      {
+        success: true,
+        image: `data:image/png;base64,${imageBase64}`,
+        prompt: fullPrompt,
+      },
+      200,
+    );
+  } catch (error) {
+    console.error("Error generating image:", error);
+    return c.json({ error: "Error occurred while generating image." }, 500);
   }
 });
 

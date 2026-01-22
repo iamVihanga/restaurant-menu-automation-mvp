@@ -8,7 +8,7 @@ export function ServerStatus({}: Props) {
   useEffect(() => {
     fetch("/api/health")
       .then((res) => res.json())
-      .then((data) => useStatus(data));
+      .then((data) => useStatus(data as string));
   }, []);
 
   return (

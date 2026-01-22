@@ -39,15 +39,7 @@ import {
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { ScrollArea } from "../ui/scroll-area";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "../ui/dialog";
 import {
   GripVerticalIcon,
   PlusIcon,
@@ -57,6 +49,7 @@ import {
   XIcon,
   ImageIcon,
 } from "lucide-react";
+import { ImageGeneratorDialog } from "./image-generator";
 
 // Sortable Menu Item Component
 interface SortableMenuItemProps {
@@ -118,7 +111,7 @@ function SortableMenuItem({
         className="shrink-0"
       >
         <Avatar className="hover:ring-primary size-8 cursor-pointer hover:ring-2 hover:ring-offset-2">
-          <AvatarImage src={undefined} />
+          <AvatarImage src={item.image} />
           <AvatarFallback className="bg-zinc-100 dark:bg-zinc-800">
             <ImageIcon className="text-muted-foreground size-4" />
           </AvatarFallback>
@@ -603,23 +596,42 @@ export function RefineStep() {
         </CardContent>
       </Card>
 
-      {/* Image Upload Dialog */}
-      <Dialog open={imageDialogOpen} onOpenChange={setImageDialogOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Menu Item Image</DialogTitle>
-            <DialogDescription>
-              {selectedItemForImage &&
-              extractedData?.data?.categories?.[
-                selectedItemForImage.categoryIndex
-              ]?.items?.[selectedItemForImage.itemIndex]?.name
-                ? `Upload an image for "${extractedData.data.categories[selectedItemForImage.categoryIndex].items[selectedItemForImage.itemIndex].name}"`
-                : "Upload an image for this menu item"}
-            </DialogDescription>
-          </DialogHeader>
-          {/* Dialog content - to be implemented */}
-        </DialogContent>
-      </Dialog>
+      <ImageGeneratorDialog
+        open={imageDialogOpen}
+        onOpenChange={setImageDialogOpen}
+        selectedItem={selectedItemForImage}
+        onSubmit={(imageUrl) => {
+          // Update the extracted data store with the generated image
+          if (selectedItemForImage) {
+            const { categoryIndex, itemIndex } = selectedItemForImage;
+            const currentData = $extractedData.get();
+            if (
+              currentData?.data?.categories?.[categoryIndex]?.items?.[itemIndex]
+            ) {
+              const updatedData = {
+                ...currentData,
+                data: {
+                  ...currentData.data,
+                  categories: currentData.data.categories.map((cat, catIdx) =>
+                    catIdx === categoryIndex
+                      ? {
+                          ...cat,
+                          items: cat.items.map((item, idx) =>
+                            idx === itemIndex
+                              ? { ...item, image: imageUrl }
+                              : item,
+                          ),
+                        }
+                      : cat,
+                  ),
+                },
+              };
+              $extractedData.set(updatedData);
+            }
+          }
+          setImageDialogOpen(false);
+        }}
+      />
     </>
   );
 }

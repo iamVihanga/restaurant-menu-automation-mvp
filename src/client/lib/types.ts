@@ -18,6 +18,7 @@ export interface MenuItem {
   description: string | null;
   price: number | null;
   addons: MenuAddon[];
+  image?: string;
 }
 
 export interface MenuCategory {
