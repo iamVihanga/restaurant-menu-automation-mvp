@@ -2,6 +2,7 @@ import {
   menuImage,
   extractedData as $extractedData,
   setExtractedData,
+  setStep,
 } from "@client/lib/stores/toolStore";
 import type { MenuExtractionResponse, MenuCategory } from "@client/lib/types";
 import { useStore } from "@nanostores/react";
@@ -241,6 +242,7 @@ export function ProcessStep({}: Props) {
                 variant={"destructive"}
                 size="lg"
                 className="h-10 w-full rounded-md bg-linear-to-t from-amber-700 to-amber-700/90"
+                onClick={() => setStep("refine")}
               >
                 Review & Edit Menu
                 <ArrowRightIcon />
