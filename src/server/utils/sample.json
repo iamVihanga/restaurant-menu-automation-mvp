@@ -1,0 +1,140 @@
+{
+  "categories": [
+    {
+      "category": "Starters",
+      "items": [
+        {
+          "name": "Mozzarella Sticks",
+          "description": null,
+          "price": 7.99,
+          "addons": []
+        },
+        {
+          "name": "Stuffed Mushrooms",
+          "description": null,
+          "price": 8.99,
+          "addons": []
+        },
+        {
+          "name": "Chicken Tenders",
+          "description": null,
+          "price": 9.99,
+          "addons": []
+        },
+        {
+          "name": "Bruschetta",
+          "description": null,
+          "price": 6.99,
+          "addons": []
+        },
+        {
+          "name": "Loaded Potato Skins",
+          "description": null,
+          "price": 8.99,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "category": "Main Course",
+      "items": [
+        {
+          "name": "Grilled Salmon",
+          "description": null,
+          "price": 18.99,
+          "addons": []
+        },
+        {
+          "name": "Chicken Parmesan",
+          "description": null,
+          "price": 16.99,
+          "addons": []
+        },
+        {
+          "name": "Beef Stroganoff",
+          "description": null,
+          "price": 17.99,
+          "addons": []
+        },
+        {
+          "name": "Ribeye Steak",
+          "description": null,
+          "price": 24.99,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "category": "Soup & Salad",
+      "items": [
+        {
+          "name": "Caesar Salad",
+          "description": null,
+          "price": 10.99,
+          "addons": []
+        },
+        {
+          "name": "Greek Salad",
+          "description": null,
+          "price": 11.99,
+          "addons": []
+        },
+        {
+          "name": "Chicken Tortilla Soup",
+          "description": null,
+          "price": 7.99,
+          "addons": []
+        },
+        {
+          "name": "Clam Chowder",
+          "description": null,
+          "price": 8.99,
+          "addons": []
+        },
+        {
+          "name": "House Salad",
+          "description": null,
+          "price": 8.99,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "category": "Beverages",
+      "items": [
+        {
+          "name": "Iced Tea",
+          "description": null,
+          "price": 2.99,
+          "addons": []
+        },
+        {
+          "name": "Lemonade",
+          "description": null,
+          "price": 2.99,
+          "addons": []
+        },
+        {
+          "name": "Soda",
+          "description": null,
+          "price": 2.49,
+          "addons": []
+        },
+        {
+          "name": "Coffee",
+          "description": null,
+          "price": 2.49,
+          "addons": []
+        },
+        {
+          "name": "Milkshakes",
+          "description": null,
+          "price": 4.99,
+          "addons": []
+        }
+      ]
+    }
+  ],
+  "currency": "USD",
+  "rawText": "**Menu Data Extraction**\n\nThe menu is divided into four categories: Starters, Main Course, Soup & Salad, and Beverages.\n\n**Starters**\n\n*   **Mozzarella Sticks** - $7.99\n*   **Stuffed Mushrooms** - $8.99\n*   **Chicken Tenders** - $9.99\n*   **Bruschetta** - $6.99\n*   **Loaded Potato Skins** - $8.99\n\n**Main Course**\n\n*   **Grilled Salmon** - $18.99\n*   **Chicken Parmesan** - $16.99\n*   **Beef Stroganoff** - $17.99\n*   **Vegetable Stir-Fry** - $14.99\n*   **Ribeye Steak** - $24.99\n\n**Soup & Salad**\n\n*   **Caesar Salad** - $10.99\n*   **Greek Salad** - $11.99\n*   **Chicken Tortilla Soup** - $7.99\n*   **Clam Chowder** - $8.99\n*   **House Salad** - $8.99\n\n**Beverages**\n\n*   **Iced Tea** - $2.99\n*   **Lemonade** - $2.99\n*   **Soda** - $2.49\n*   **Coffee** - $2.49\n*   **Milkshakes** - $4.99"
+}

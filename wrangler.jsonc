@@ -8,6 +8,10 @@
   },
 
   // For local environment,
+  "ai": {
+    "binding": "AI",
+    "remote": true
+  },
   "d1_databases": [
     {
       "binding": "DB",
@@ -29,7 +33,15 @@
           "database_id": "282b4fd8-b0d5-4105-b8b2-502039a2ae29",
           "migrations_dir": "./src/server/database/migrations"
         }
-      ]
+      ],
+      "ai": {
+        "binding": "AI",
+        "remote": true
+      },
+      "observability": {
+        "enabled": true,
+        "head_sampling_rate": 1
+      }
     },
     "production": {
       "vars": {

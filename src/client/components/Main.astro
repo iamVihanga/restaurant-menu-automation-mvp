@@ -1,0 +1,18 @@
+---
+import { ToolWidget } from "./widgets/tool-widget";
+import { Separator } from "./ui/separator";
+---
+
+<div class="min-h-screen w-full">
+  <div class="mx-auto flex h-full max-w-2xl flex-col">
+    <div class="w-full py-6">
+      <h2 class="text-xl font-bold">Restaurant Menu Agent</h2>
+    </div>
+
+    <Separator />
+
+    <div class="h-full flex-1">
+      <ToolWidget client:load />
+    </div>
+  </div>
+</div>
