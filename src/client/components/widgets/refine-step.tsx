@@ -590,8 +590,25 @@ export function RefineStep() {
           {/* </ScrollArea> */}
 
           <div className="mt-4 flex justify-end gap-2 border-t pt-4">
-            <Button variant="outline">Reset Changes</Button>
-            <Button>Save & Export</Button>
+            <Button
+              onClick={() => {
+                if (!extractedData?.data) return;
+                const jsonString = JSON.stringify(extractedData.data, null, 2);
+                const blob = new Blob([jsonString], {
+                  type: "application/json",
+                });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.href = url;
+                link.download = "menu-data.json";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+              }}
+            >
+              Export as JSON
+            </Button>
           </div>
         </CardContent>
       </Card>
